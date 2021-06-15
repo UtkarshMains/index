@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>converter</title>
+    <style>
+        h1{background-color:rgb(247, 252, 177);font-size: 55px;color:brown}
+        #a{border:150px solid red}
+        h2{background-color: aliceblue;}
+    </style>
+</head>
+<body bgcolor="aqua">
+    <h1><p align="center"><u><i>Decimal to HEX format converter</i></u></p></h1>
+        <div id="a">
+            decimal number:
+            <input type="int" name=""  value ="0.0" id="decimal">
+            <p >HEX:</p>
+            <h2 id="hex"></h2>
+            <script>
+                function converter(){
+                    var a=document.getElementById("decimal").value;
+                    var i=parseInt(a);
+                    var dep="";
+                    if(i!=a)
+                    {
+                        dep="."
+                        var d=a-i;
+                        while(d!=0)
+                        {
+                            c=parseInt(d*16);
+                            d=(d*16)-parseInt(d*16);
+                            if(c==10)
+                        {
+                            dep=dep+'A';
+                        }
+                        else if(c==11)
+                        {
+                            dep=dep+'B';
+                        }
+                        else if(c==12)
+                        {
+                            dep=dep+'C';
+                        }
+                        else if(c==13)
+                        {
+                            dep=dep+'D';
+                        }
+                        else if(c==14)
+                        {
+                            dep=dep+'E';
+                        }
+                        else if(c==15)
+                        {
+                            dep=dep+'F';
+                        }
+                        else
+                        {
+                            dep=dep+c.toString();
+                        }
+                        }
+                    }
+                    var hex="0",res="";
+                    while (i>=1) {
+                        b=(((i/16)-(parseInt(i/16)))*16);
+                        if(b==10)
+                        {
+                            res=res+'A';
+                        }
+                        else if(b==11)
+                        {
+                            res=res+'B';
+                        }
+                        else if(b==12)
+                        {
+                            res=res+'C';
+                        }
+                        else if(b==13)
+                        {
+                            res=res+'D';
+                        }
+                        else if(b==14)
+                        {
+                            res=res+'E';
+                        }
+                        else if(b==15)
+                        {
+                            res=res+'F';
+                        }
+                        else
+                        {
+                            res=res+b.toString();
+                        }
+                        i=parseInt(i/16);
+                    }
+                    var arr = res.split("");
+                    arr.reverse();
+                    hex= arr.join("");
+                    hex=hex+dep;  
+                document.getElementById("hex").innerHTML =hex ;
+                }
+            </script>
+            
+            <button type="button" onclick="converter()">CONVERT</button>
+
+        </div>
+</body>
+</html>
